@@ -1,0 +1,19 @@
+{
+  "started_at": "2026-05-25T04:58:39.505Z",
+  "city": "chennai",
+  "event_count": 2000,
+  "telemetry_count": 8000,
+  "files": {
+    "operational_events": "D:\\Rovik\\ml\\datasets\\raw\\operational_events_chennai_2026-05-25T04-58-39-505Z.jsonl.gz",
+    "rider_telemetry": "D:\\Rovik\\ml\\telemetry\\rider_telemetry_chennai_2026-05-25T04-58-39-505Z.jsonl.gz"
+  },
+  "sizes_mb": {
+    "operational_events": 0.042,
+    "rider_telemetry": 0.189
+  },
+  "retention_policy": {
+    "raw_events_days": 90,
+    "raw_telemetry_days": 14,
+    "aggregate_telemetry_days": 365
+  }
+}

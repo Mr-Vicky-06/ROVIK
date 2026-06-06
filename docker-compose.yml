@@ -1,0 +1,99 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: rovik-postgres
+    environment:
+      POSTGRES_DB: rovik
+      POSTGRES_USER: rovik
+      POSTGRES_PASSWORD: rovik
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./infra/docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rovik -d rovik"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: rovik-redis
+    ports:
+      - "6380:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./apps/api
+    container_name: rovik-api
+    env_file:
+      - ./apps/api/.env.example
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+    volumes:
+      - ./apps/api:/app
+    command: ["uvicorn", "routeiq.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  web:
+    build:
+      context: ./apps/web
+    container_name: rovik-web
+    env_file:
+      - ./apps/web/.env.example
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+      - /app/.next
+    command: ["npm", "run", "dev"]
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.3
+    container_name: rovik-clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - ./infra/clickhouse_schema.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8123/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  k6:
+    image: grafana/k6:latest
+    container_name: rovik-load-test
+    profiles: ["load-test"]
+    depends_on:
+      - api
+    volumes:
+      - ./scripts/load_tests:/scripts
+    command: ["run", "/scripts/k6_telemetry.js"]
+    # For load testing, k6 needs to connect to the host machine's API, so we use host network
+    network_mode: "host"
+
+volumes:
+  postgres-data:
+  redis-data:
+  clickhouse-data:

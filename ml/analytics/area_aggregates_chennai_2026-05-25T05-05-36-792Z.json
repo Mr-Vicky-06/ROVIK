@@ -1,0 +1,51 @@
+[
+  {
+    "area": "T Nagar",
+    "orders": 1930,
+    "delay_rate": 0.3176,
+    "avg_eta_min": 44.031,
+    "avg_traffic_level": 0.4917
+  },
+  {
+    "area": "Velachery",
+    "orders": 1930,
+    "delay_rate": 0.3228,
+    "avg_eta_min": 42.591,
+    "avg_traffic_level": 0.4917
+  },
+  {
+    "area": "Anna Nagar",
+    "orders": 1929,
+    "delay_rate": 0.3079,
+    "avg_eta_min": 42.902,
+    "avg_traffic_level": 0.5114
+  },
+  {
+    "area": "Adyar",
+    "orders": 1929,
+    "delay_rate": 0.3069,
+    "avg_eta_min": 43.512,
+    "avg_traffic_level": 0.51
+  },
+  {
+    "area": "Guindy",
+    "orders": 1928,
+    "delay_rate": 0.3133,
+    "avg_eta_min": 43.39,
+    "avg_traffic_level": 0.4928
+  },
+  {
+    "area": "Mylapore",
+    "orders": 1927,
+    "delay_rate": 0.2953,
+    "avg_eta_min": 42.524,
+    "avg_traffic_level": 0.5107
+  },
+  {
+    "area": "OMR",
+    "orders": 1927,
+    "delay_rate": 0.2968,
+    "avg_eta_min": 43.309,
+    "avg_traffic_level": 0.4992
+  }
+]

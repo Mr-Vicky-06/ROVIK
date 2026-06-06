@@ -1,0 +1,37 @@
+[project]
+name = "rovik-ml"
+version = "0.1.0"
+description = "Storage-constrained ML and data infrastructure for ROVIK"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26.4",
+  "pandas>=2.2.2",
+  "scikit-learn>=1.5.0",
+  "joblib>=1.4.2",
+  "pydantic>=2.7.0",
+  "pyarrow>=16.1.0",
+  "chromadb>=0.4.24",
+  "langchain>=0.1.16",
+  "langchain-community>=0.0.32",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "ruff>=0.4.0",
+]
+boosting = [
+  "lightgbm>=4.3.0",
+  "xgboost>=2.0.3",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["rovik_ml"]

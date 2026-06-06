@@ -1,0 +1,54 @@
+[
+  {
+    "rider_id": "rider-12",
+    "vehicle_type": "bike",
+    "telemetry_points": 3250,
+    "avg_speed_kmph": 18.499,
+    "idle_ratio": 0.0529,
+    "avg_route_deviation_m": 90.912,
+    "avg_traffic_level": 0.4997,
+    "assigned_orders": 126,
+    "completed_orders": 125,
+    "failed_orders": 124,
+    "completion_rate": 0.502
+  },
+  {
+    "rider_id": "rider-07",
+    "vehicle_type": "scooter",
+    "telemetry_points": 3250,
+    "avg_speed_kmph": 22.727,
+    "idle_ratio": 0.0526,
+    "avg_route_deviation_m": 90.14,
+    "avg_traffic_level": 0.4951,
+    "assigned_orders": 126,
+    "completed_orders": 126,
+    "failed_orders": 125,
+    "completion_rate": 0.502
+  },
+  {
+    "rider_id": "rider-03",
+    "vehicle_type": "ev_scooter",
+    "telemetry_points": 3250,
+    "avg_speed_kmph": 20.941,
+    "idle_ratio": 0.0526,
+    "avg_route_deviation_m": 90.585,
+    "avg_traffic_level": 0.5063,
+    "assigned_orders": 124,
+    "completed_orders": 124,
+    "failed_orders": 126,
+    "completion_rate": 0.496
+  },
+  {
+    "rider_id": "rider-09",
+    "vehicle_type": "van",
+    "telemetry_points": 3250,
+    "avg_speed_kmph": 16.727,
+    "idle_ratio": 0.0529,
+    "avg_route_deviation_m": 88.534,
+    "avg_traffic_level": 0.5092,
+    "assigned_orders": 125,
+    "completed_orders": 124,
+    "failed_orders": 124,
+    "completion_rate": 0.5
+  }
+]

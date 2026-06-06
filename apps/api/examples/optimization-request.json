@@ -1,0 +1,62 @@
+{
+  "depot": {
+    "latitude": 12.9716,
+    "longitude": 77.5946
+  },
+  "vehicles": [
+    {
+      "id": "bike-01",
+      "vehicle_type": "bike",
+      "capacity": 5,
+      "start_location": {
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "cost_per_km": 4.5
+    },
+    {
+      "id": "scooter-02",
+      "vehicle_type": "scooter",
+      "capacity": 6,
+      "start_location": {
+        "latitude": 12.9352,
+        "longitude": 77.6245
+      },
+      "cost_per_km": 5.2
+    }
+  ],
+  "orders": [
+    {
+      "id": "order-1001",
+      "priority": 1,
+      "service_minutes": 4,
+      "dropoff": {
+        "latitude": 12.9279,
+        "longitude": 77.6271
+      }
+    },
+    {
+      "id": "order-1002",
+      "priority": 3,
+      "service_minutes": 5,
+      "dropoff": {
+        "latitude": 12.9784,
+        "longitude": 77.6408
+      }
+    },
+    {
+      "id": "order-1003",
+      "priority": 2,
+      "service_minutes": 6,
+      "dropoff": {
+        "latitude": 13.0012,
+        "longitude": 77.5995
+      }
+    }
+  ],
+  "objective": {
+    "minimize_distance": true,
+    "balance_workload": true,
+    "priority_weight": 1.4
+  }
+}

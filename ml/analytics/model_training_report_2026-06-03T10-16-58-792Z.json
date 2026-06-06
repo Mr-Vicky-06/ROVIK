@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-03T10:17:03.479Z",
+  "training_rows": 16120,
+  "test_rows": 4031,
+  "selected_eta_model": "eta_linear_operational_v1",
+  "selected_eta_metrics": {
+    "mae_minutes": 2.1282,
+    "rmse_minutes": 2.5849
+  },
+  "selected_delay_model": "delay_logistic_operational_v1",
+  "selected_delay_metrics": {
+    "accuracy": 0.8075
+  },
+  "artifact_path": "D:\\Rovik\\ml\\models\\registry\\selected_operational_model_2026-06-03T10-16-58-792Z.json",
+  "backend_artifact_path": "D:\\Rovik\\apps\\api\\routeiq\\ml\\model_artifacts\\selected_operational_model.json",
+  "artifact_size_mb": 0.007
+}

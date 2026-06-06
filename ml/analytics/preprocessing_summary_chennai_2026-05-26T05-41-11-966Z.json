@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-05-26T05:41:12.409Z",
+  "city": "chennai",
+  "source_event_files": 4,
+  "source_telemetry_files": 4,
+  "event_total": 23500,
+  "telemetry_total": 73000,
+  "feature_rows": 6717,
+  "event_counts": {
+    "order_created": 3359,
+    "rider_assigned": 3359,
+    "route_generated": 3358,
+    "ETA_updated": 3358,
+    "rider_location_updated": 3356,
+    "delivery_completed": 3355,
+    "delivery_failed": 3355
+  },
+  "output_files": {
+    "features": "D:\\Rovik\\ml\\datasets\\features\\operational_features_chennai_2026-05-26T05-41-11-966Z.jsonl.gz",
+    "rider_aggregates": "D:\\Rovik\\ml\\analytics\\rider_aggregates_chennai_2026-05-26T05-41-11-966Z.json",
+    "area_aggregates": "D:\\Rovik\\ml\\analytics\\area_aggregates_chennai_2026-05-26T05-41-11-966Z.json"
+  },
+  "output_sizes_mb": {
+    "features": 0.223,
+    "rider_aggregates": 0.001,
+    "area_aggregates": 0.001
+  }
+}

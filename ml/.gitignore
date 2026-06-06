@@ -1,0 +1,8 @@
+datasets/raw/*
+datasets/processed/*
+datasets/features/*
+models/registry/*
+models/checkpoints/*
+logs/*
+tmp/*
+!.gitkeep
