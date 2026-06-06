@@ -17,8 +17,9 @@ async def test_ai_extraction_valid_text():
     """
     
     # Mocking Ollama's response
-    with patch.object(ai_extractor.llm, 'ainvoke') as mock_ainvoke:
-        mock_ainvoke.return_value = '''{
+    with patch("routeiq.application.ingestion.ai_extractor.ai_extractor.chain") as mock_chain:
+        from unittest.mock import AsyncMock
+        mock_chain.ainvoke = AsyncMock(return_value={
             "orders": [
                 {
                     "customer_name": "John Doe",
@@ -29,7 +30,7 @@ async def test_ai_extraction_valid_text():
                     "priority": 4
                 }
             ]
-        }'''
+        })
         
         orders = await ai_extractor.extract_orders(raw_ocr_text)
         assert len(orders) == 1
@@ -38,8 +39,9 @@ async def test_ai_extraction_valid_text():
 
 @pytest.mark.asyncio
 async def test_ai_extraction_empty_text():
-    with patch.object(ai_extractor.llm, 'ainvoke') as mock_ainvoke:
-        mock_ainvoke.return_value = '{"orders": []}'
+    with patch("routeiq.application.ingestion.ai_extractor.ai_extractor.chain") as mock_chain:
+        from unittest.mock import AsyncMock
+        mock_chain.ainvoke = AsyncMock(return_value={"orders": []})
         orders = await ai_extractor.extract_orders("")
         assert len(orders) == 0
 

@@ -55,7 +55,7 @@ class OrderUpdate(BaseModel):
 
 class OrderRead(OrderCreate):
     id: str
-    tenant_id: str
+    organization_id: str
     status: str
     created_at: datetime
 

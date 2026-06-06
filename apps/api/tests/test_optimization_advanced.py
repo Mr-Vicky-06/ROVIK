@@ -35,4 +35,3 @@ def test_fleet_optimization_invalid_payload():
     
     # Pydantic should catch the validation error and return 422
     assert response.status_code == 422
-    assert response.json()["detail"] == "VRP Solver could not find a solution for these parameters."
