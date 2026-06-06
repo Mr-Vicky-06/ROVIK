@@ -5,9 +5,10 @@ client = TestClient(app)
 
 def test_fleet_optimization_valid():
     payload = {
+        "depot": {"latitude": 13.0, "longitude": 80.0},
         "vehicles": [
-            {"id": "V1", "capacity": 10, "start_location": {"latitude": 13.0, "longitude": 80.0}},
-            {"id": "V2", "capacity": 10, "start_location": {"latitude": 13.0, "longitude": 80.0}}
+            {"id": "V1", "vehicle_type": "truck", "capacity": 10, "start_location": {"latitude": 13.0, "longitude": 80.0}, "cost_per_km": 1.5},
+            {"id": "V2", "vehicle_type": "van", "capacity": 10, "start_location": {"latitude": 13.0, "longitude": 80.0}, "cost_per_km": 1.0}
         ],
         "orders": [
             {"id": "O1", "priority": 1, "service_minutes": 5, "dropoff": {"latitude": 13.1, "longitude": 80.1}},
@@ -25,6 +26,7 @@ def test_fleet_optimization_valid():
 
 def test_fleet_optimization_invalid_payload():
     payload = {
+        "depot": {"latitude": 13.0, "longitude": 80.0},
         "vehicles": [], # Invalid: zero vehicles
         "orders": []
     }
