@@ -11,7 +11,7 @@ sys.modules['langchain.prompts'] = MagicMock()
 sys.modules['langchain.chains'] = MagicMock()
 sys.modules['chromadb'] = MagicMock()
 
-from routeiq.main import app
+from routeiq.main import app  # noqa: E402
 
 client = TestClient(app)
 

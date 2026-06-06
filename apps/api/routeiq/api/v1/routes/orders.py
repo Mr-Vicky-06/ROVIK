@@ -278,7 +278,7 @@ async def commit_import_job(
     if not job or job.status != "pending_approval":
         raise HTTPException(status_code=400, detail="Job not found or not in pending_approval status")
         
-    rows_query = select(OrderImportRowModel).where(OrderImportRowModel.job_id == job_id, OrderImportRowModel.is_valid == True, OrderImportRowModel.status == "pending")
+    rows_query = select(OrderImportRowModel).where(OrderImportRowModel.job_id == job_id, OrderImportRowModel.is_valid, OrderImportRowModel.status == "pending")
     rows_result = await db.execute(rows_query)
     rows = rows_result.scalars().all()
     

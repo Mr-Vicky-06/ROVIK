@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
-
+from datetime import datetime
+from typing import Optional
 from routeiq.schemas.optimization import GeoPointSchema
 
 
@@ -15,8 +16,7 @@ class DeliveryRead(DeliveryCreate):
     status: str
 
 
-from datetime import datetime
-from typing import Optional
+
 
 class OrderCreate(BaseModel):
     customer_name: str = Field(min_length=1, max_length=255)

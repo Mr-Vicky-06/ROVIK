@@ -116,9 +116,6 @@ class OrToolsOptimizationService:
 
     async def _distance_matrix(self, locations: list[GeoPoint]) -> list[list[int]]:
         import httpx
-        from routeiq.core.config import get_settings
-        
-        settings = get_settings()
         
         # If configured for OSRM or as high-speed default, query bulk table API
         try:
